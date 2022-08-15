@@ -23,6 +23,7 @@ app.get("^/$|/home", (req, res) => {
 	res.render("home", {
 		homeStartingContent: homeStartingContent,
 		posts: posts,
+
 	});
 });
 
@@ -30,8 +31,13 @@ app.get("/posts/:postName", (req, res) => {
 	const postName = _.lowerCase(req.params.postName);
 	posts.forEach((e) => {
         const storedTitle = _.lowerCase(e.title)
+
 		if (postName === storedTitle) {
-			res.render("post", { title: e.title, content: e.textPost });
+			res.render("post", {
+				title: e.title,
+				content: e.textPost,
+
+			});
 		}
 	});
 });

@@ -3,13 +3,14 @@
     <p class="pp">
         <%=homeStartingContent%>
     </p>
-    <% posts.forEach((e) => {%>
+    <% posts.forEach((e)=> {%>
 
         <h1>
             <%= e.title %>
         </h1>
         <p class="pp">
-            <%= e.textPost %>
+            <%= e.textPost.substring(0, 101) + "..." %>
+                <a href="/posts/<%=e.title.toLowerCase().split(" ").join("-")%>">Read More</a>
         </p>
         <% });%>
             <%- include('partials/footer'); -%>
